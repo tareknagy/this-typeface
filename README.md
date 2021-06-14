@@ -1,70 +1,55 @@
-# Getting Started with Create React App
+[insert thumbnail gif]
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# This Typeface
 
-## Available Scripts
+A tool to help users find the perfect typeface for every project.
 
-In the project directory, you can run:
+[Access the tool here](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-### `npm start`
+## Table of Content
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+X
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Background
 
-### `npm test`
+- Tool was originally for personal use.
+- Came from a need to more easily sort through the endless typefaces on my computer and those on the internet.
+- My previous workflow of creating multiple text boxes in Illustrator and sampling different fonts was getting harder and harder as I collected more fonts.
+- So I created a tool that allows me to sample all the typefaces on my computer and some in select web repositories.
+- Now I can create multiple projects, and save those typefaces to those projects so i can go back to them later. I can also tag them with visual keywords to make future hunts more seemless.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Features
 
-### `npm run build`
+X - Insert Trello Screenshot
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Current
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Create a user account.
+- Create projects.
+- Browse through fonts available through various web repositories.
+- Save fonts to individual projects.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Upcoming
 
-### `npm run eject`
+- Browse fonts on your computer.
+- 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Future
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Discover new typefaces through a currated selection from various independant foundries.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Design
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+X  - Insert Figma or Sketch artboard
 
-## Learn More
+### Identity
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+X - Values, Keywords, Sketches.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Layout
 
-### Code Splitting
+x - Thumbnails, components breakdown for React.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Development
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
