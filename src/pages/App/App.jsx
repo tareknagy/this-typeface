@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import { getUser } from '../../utilities/user-service';
 import './App.css';
@@ -19,27 +19,26 @@ export default function App() {
   }
 
   // toggle header on scroll
+  const headerRef = useRef(null);
   const [y, setY] = useState(window.scrollY);
-  const handleNavigation = useCallback(
-    e => {
+  const handleHeader = useCallback(e => {
       const window = e.currentTarget;
       if (y > window.scrollY) {
-        console.log("scrolling up");
+        headerRef.current.classList.remove('header-scroll');
       } else if (y < window.scrollY) {
-        console.log("scrolling down");
+        headerRef.current.classList.add('header-scroll');
       }
       setY(window.scrollY);
     }, [y]
   );
+  useEffect(() => {
+    setY(window.scrollY);
+    window.addEventListener("scroll", handleHeader);
 
-useEffect(() => {
-  setY(window.scrollY);
-  window.addEventListener("scroll", handleNavigation);
-
-  return () => {
-    window.removeEventListener("scroll", handleNavigation);
-  };
-}, [handleNavigation]);
+    return () => {
+      window.removeEventListener("scroll", handleHeader);
+    };
+  }, [handleHeader]);
 
   return (
     <main className="App">
@@ -47,7 +46,7 @@ useEffect(() => {
         <>
           <NavBar user={user} setUser={setUser} />
           <div style={{height:'140px'}}></div>
-          <header>
+          <header ref={headerRef}>
             <img className="logo" src={logo} alt="This Typeface Icon" />
             <div className="user-pangram">
               <input 

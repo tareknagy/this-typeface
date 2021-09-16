@@ -12,7 +12,6 @@ export default function NavBar({ user, setUser }) {
 
   return (
     <nav>
-      <img className="logo" src={ logo } alt="This Typeface Logo" />
       <div className="links">
         <NavLink exact activeStyle={{textDecoration: "underline dotted"}} to="/typefaces">ALL</NavLink>
         &nbsp; | &nbsp;

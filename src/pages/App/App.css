@@ -167,11 +167,13 @@ header {
   height: 90px;
   width: calc(70% - 20px);
   background-color: black;
-  transition: top 200ms ease-in-out;
+  transition: 300ms ease;
+  
 }
 
 .header-scroll {
   top: -80px;
+  transition: 300ms ease;
 }
 
 .logo {
@@ -182,20 +184,17 @@ header {
   display: flex;
   justify-content: space-between;
   background-color: black;
-  /* width: 100%; */
-  /* position: fixed; */
-  top: 90px;
   padding-top: 20px;
   padding-bottom: 20px;
 }
 
 .user-pangram > input {
   width: 80%;
-  height: 50px;
+  height: 60px;
   margin-right: 20px;
 }
 
 .user-pangram > button {
   width: 20%;
-  height: 50px;
+  height: 60px;
 }
