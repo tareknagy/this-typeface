@@ -37,16 +37,17 @@ export function getToken() {
 export function logOut() {
     localStorage.removeItem('token');
 }
-  
+
 export function getUser() {
     const token = getToken();
     // token ? user in the payload : null
     return token ? JSON.parse(atob(token.split('.')[1])).user : null;
 }
 
-
-// testing validation of token, not needed.
-export function checkToken() {
-    return usersAPI.checkToken()
-        .then(dateStr => new Date(dateStr));
+// get list of available typefaces from local storage.
+export function getTypefaceList() {
+    const thisTypeList = JSON.parse(localStorage.getItem('thisTypeList'));
+    // null if there's no string
+    if (!thisTypeList) return null;
+    return thisTypeList;
 }

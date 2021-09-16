@@ -4,6 +4,7 @@ import LoginForm from '../../components/LoginForm/LoginForm';
 
 export default function AuthPage({ setUser }){
     const [showLogin, setShowLogin] = useState(true);
+    console.log('hi');
     return (
         <main>
             <h1>AuthPage</h1>

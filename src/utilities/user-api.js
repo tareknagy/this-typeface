@@ -9,12 +9,26 @@ export function login(credentials) {
   return sendRequest(`${BASE_URL}/login`, 'POST', credentials);
 }
 
-// Functions
-
-// testing purposes only
-export function checkToken() {
-  return sendRequest(`${BASE_URL}/check-token`);
+export function getFavorites() {
+  const options = {
+    headers: {
+      Authorization: `Bearer ${getToken()}`
+    }
+  }
 }
+
+export function manageUserFavorites(typeface) {
+  typeface['favorite'] = true;
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${getToken()}`
+    }
+  }
+  return fetch(`${BASE_URL}/favorites/${btoa(JSON.stringify(typeface))}`, options).then(res => res.json());
+}
+
 
 async function sendRequest(url, method = 'GET', payload = null) {
   const options = { method };

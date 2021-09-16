@@ -1,0 +1,58 @@
+.type-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    min-height: 250px;
+    background-color: white;
+    margin-bottom: 20px;
+    padding: 10px;
+    text-transform: uppercase;
+}
+
+.type-card-pangram {
+    font-size: 40pt;
+}
+
+.type-card-decoration {
+    position: absolute;
+    opacity: 0;
+    height: 100%;
+    width: 100%;
+    transition: 300ms;
+}
+
+.type-card-decoration:hover {
+    opacity: 1;
+    transition: 300ms;
+}
+
+.type-card-name {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    font-size: 20pt;
+}
+
+.type-card-adjectives {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    font-size: 20pt;
+}
+
+.type-card-links {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 20pt;
+    text-align: right;
+}
+
+.type-card-describe {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    font-size: 20pt;
+    text-align: right;
+}

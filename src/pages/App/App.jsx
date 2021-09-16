@@ -3,8 +3,8 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import { getUser } from '../../utilities/user-service';
 import './App.css';
 import AuthPage from '../AuthPage/AuthPage';
-import NewOrderPage from '../NewOrderPage/NewOrderPage';
-import OrderHistory from '../OrderHistory/OrderHistory'
+import Favorites from '../Favorites/Favorites';
+import Typefaces from '../Typefaces/Typefaces'
 import NavBar from '../../components/NavBar/NavBar';
 
 
@@ -16,13 +16,13 @@ export default function App() {
         <>
           <NavBar user={user} setUser={setUser} />
           <Switch>
-            <Route path="/orders/new">
-              <NewOrderPage />
+            <Route path="/typefaces/favorites">
+              <Favorites />
             </Route>
-            <Route path="/orders">
-              <OrderHistory />
+            <Route path="/typefaces">
+              <Typefaces />
             </Route>
-            <Redirect to="/orders" />
+            <Redirect to="/typefaces" />
           </Switch>
         </>
       :

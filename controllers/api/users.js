@@ -5,8 +5,15 @@ const bcrypt = require('bcrypt');
 
 module.exports = {
     create,
-    login
+    login,
+    manageFavorites,
+    favorites
 };
+
+async function favorites(req, res) {
+  const user = await User.getUser(req.user._id);
+  res.json(user.favorites);
+}
 
 async function create(req, res) {
     try {
@@ -33,6 +40,17 @@ async function login(req, res) {
     } catch {
       res.status(400).json('Bad Credentials');
     }
+}
+
+async function manageFavorites(req, res) {
+  const user = await User.getUser(req.user._id);
+  const typeface = req.params.typeface;
+  // Delete if there
+  if (user.favorites.indexOf(typeface) > -1) {
+    user.favorites.splice(user.favorites.indexOf(typeface), 1);
+  }
+  user.save();
+  res.json(user.favorites);
 }
 
 // Helper functions

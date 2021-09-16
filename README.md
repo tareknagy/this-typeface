@@ -24,15 +24,15 @@ X - Insert Trello Screenshot
 
 ### Current
 
-- Create a user account.
+- Create a user account (OAuth).
 - Create projects.
 - Browse through fonts available through various web repositories.
 - Save fonts to individual projects.
 
 ### Upcoming
 
-- Browse fonts on your computer.
-- 
+- Browse typefaces on your computer.
+- Ability to add descriptive words.
 
 ### Future
 
@@ -40,16 +40,60 @@ X - Insert Trello Screenshot
 
 ## Design
 
-X  - Insert Figma or Sketch artboard
-
 ### Identity
 
+X - Insert Ideation page.
 X - Values, Keywords, Sketches.
 
 ### Layout
 
+X - Insert Figma or Sketch Artboard, Thumbnails.
 x - Thumbnails, components breakdown for React.
 
 ## Development
 
 
+
+
+
+### Ideation
+
+Target audience:
+- Designers primarily, but anyone that wants to create a logotype.
+
+Keywords:
+- discovery (find typefaces you don't already have)
+- sorting (find the right typeface within the ones you already have)
+- curated (discover new foundaries and cool typefaces)
+- select
+- this
+- find
+- search
+- high-design
+- unusual
+- experimental
+- typography (everything should be type)
+- rolladeck (search for it)
+- index
+- tags
+- labels
+- list
+- lines
+- artifacts (scanned ones? black background, white cards?)
+- documenting
+- business card as the ultimate mockup (also it is a reference in itself)
+- mockup!
+- Bring together
+- Meeting point
+- Dog ear
+- Mark it
+- Reference (think citation star)
+
+
+x marks the spot
+circle for selection
+* for the right pick (maybe this is the symbol)
+
+
+
+- sizing: small medium large
