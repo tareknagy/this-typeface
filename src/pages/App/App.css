@@ -7,10 +7,18 @@
   --orange: #F67F00;
   --text-light: #968c84;
   --text-dark: #615954;
+  font-family: 'America', 'Helvetica Neue', sans-serif;
 }
 
 *, *:before, *:after {
   box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: var(--white);
+  font-family: 'America', 'Helvetica Neue', sans-serif;
+
 }
 
 body {
@@ -18,14 +26,13 @@ body {
   font-family: 'America', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: lightgray;
+  background-color: black;
   padding: 2vmin;
   height: 100vh;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: 'America', 'Helvetica Neue', sans-serif;
 }
 
 #root {
@@ -102,29 +109,25 @@ label {
 
 input {
   padding: 1vmin;
-  font-size: 2vmin;
+  font-size: 14pt;
   border: .1vmin solid var(--tan-3);
-  border-radius: .5vmin;
-  color: var(--text-dark);
+  color: white;
+  background-color: transparent;
   background-image: none !important; /* prevent lastpass */
   outline: none;
 }
 
 input:focus {
-  border-color: var(--orange);
+  border-color: lightgrey;
 }
 
 button, a.button {
-  margin: 1vmin;
-  padding: 1vmin;
-  color: var(--white);
-  background-color: var(--orange);
-  font-size: 2vmin;
-  font-weight: bold;
+  color: white;
+  background-color: transparent;
+  font-size: 14pt;
   text-decoration: none;
   text-align: center;
   border: .1vmin solid var(--tan-2);
-  border-radius: .5vmin;
   outline: none;
   cursor: pointer;
 }
@@ -147,4 +150,52 @@ button:disabled, form:invalid button[type="submit"] {
 button[type="submit"] {
   grid-column: span 2;
   margin: 1vmin 0 0;
+}
+
+.icon {
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  max-height: 40px;
+  z-index: -1;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  padding-top: 20px;
+  height: 90px;
+  width: calc(70% - 20px);
+  background-color: black;
+  transition: top 200ms ease-in-out;
+}
+
+.header-scroll {
+  top: -80px;
+}
+
+.logo {
+  max-height: 50px;
+}
+
+.user-pangram {
+  display: flex;
+  justify-content: space-between;
+  background-color: black;
+  /* width: 100%; */
+  /* position: fixed; */
+  top: 90px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.user-pangram > input {
+  width: 80%;
+  height: 50px;
+  margin-right: 20px;
+}
+
+.user-pangram > button {
+  width: 20%;
+  height: 50px;
 }

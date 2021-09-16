@@ -3,15 +3,13 @@ import * as userService from '../../utilities/user-service';
 import Typeface from '../../components/Typeface/Typeface';
 import DownloadExtension from '../../components/DownloadExtension/DownloadExtension';
 
-export default function Typefaces(){
+export default function Typefaces(props){
     const [thisTypeList, setThisTypeList] = useState(userService.getTypefaceList());
     return (
         <>
-        <h1>Typefaces</h1>
-        {thisTypeList ? thisTypeList.map((typeName, index) => (
-            <Typeface typeName={typeName} />
-        )): <DownloadExtension />}
-        
-    </>
+            {thisTypeList ? thisTypeList.map((typeName, index) => (
+                <Typeface inputPangram={props.inputPangram} typeName={typeName} />
+            )): <DownloadExtension />}
+        </>
     )
 }

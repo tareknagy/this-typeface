@@ -11,11 +11,9 @@
     grid-template-rows: 1fr auto 1fr;
     margin-bottom: 20px;
     padding: 10px;
-    max-height: 200px;
     width: 70%;
     font-size: 14pt;
     background-color: white;
-    text-transform: uppercase;
     transition: 300ms;
 }
 
@@ -41,6 +39,7 @@
     grid-row: 1 / 2;
     opacity: 0;
     transition: 300ms;
+    text-transform: uppercase;
 }
 
 .type-card-adjectives {
@@ -49,6 +48,7 @@
     align-self: flex-end;
     opacity: 0;
     transition: 300ms;
+    text-transform: uppercase;
 }
 
 .type-card-links {
@@ -59,6 +59,7 @@
     cursor: pointer;
     opacity: 0;
     transition: 300ms;
+    text-transform: uppercase;
 }
 
 .type-card-describe {
@@ -70,6 +71,7 @@
     cursor: pointer;
     opacity: 0;
     transition: 300ms;
+    text-transform: uppercase;
 }
 
 .type-card-drawer {
