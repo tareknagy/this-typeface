@@ -5,8 +5,7 @@ import Typeface from '../../components/Typeface/Typeface';
 import DownloadExtension from '../../components/DownloadExtension/DownloadExtension';
 import './Typefaces.css'
 
-export default function Typefaces(props){
-    const [thisTypeList, setThisTypeList] = useState(userService.getTypefaceList());
+export default function Typefaces({ inputPangram, thisTypeList}){
     const [favorites, setFavorites] = useState([]);
 
     useEffect(function() {
@@ -21,14 +20,14 @@ export default function Typefaces(props){
 
     return (
         <div className="typefaces-container">
-            {thisTypeList ? thisTypeList.map((typeName, index) => (
+            {thisTypeList.map((typeName, index) => (
                 <Typeface 
-                    inputPangram={props.inputPangram} 
+                    inputPangram={inputPangram} 
                     typeName={typeName}
                     favorites={favorites}
                     setFavorites={setFavorites}
                 />
-            )): <DownloadExtension />}
+            ))}
         </div>
     )
 }

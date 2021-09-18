@@ -1,0 +1,17 @@
+.logo {
+    margin-top: 20px;
+}
+.download-container {
+    max-width: 400px;
+    margin: 20px;
+    color: white;
+}
+
+.download-container > p {
+    color: rgb(211, 211, 211);
+}
+
+.download-container * a {
+    color: rgb(211, 211, 211);
+    text-decoration: underline;
+}
