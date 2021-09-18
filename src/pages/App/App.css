@@ -27,7 +27,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: black;
-  padding: 2vmin;
   height: 100vh;
 }
 
@@ -69,7 +68,7 @@ code {
   overflow-y: scroll;
 }
 
-.section-heading {
+/* .section-heading {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -80,7 +79,7 @@ code {
   padding: .6vmin;
   text-align: center;
   font-size: 2vmin;
-}
+} */
 
 .form-container {
   padding: 3vmin;
@@ -163,11 +162,13 @@ button[type="submit"] {
 header {
   position: fixed;
   top: 0;
+  left: 0;
   padding-top: 20px;
   height: 90px;
-  width: calc(70% - 20px);
+  width: 70%;
   background-color: black;
   transition: 300ms ease;
+  z-index: 1;
   
 }
 
@@ -178,6 +179,7 @@ header {
 
 .logo {
   max-height: 50px;
+  padding-left: 20px;
 }
 
 .user-pangram {
@@ -186,6 +188,7 @@ header {
   background-color: black;
   padding-top: 20px;
   padding-bottom: 20px;
+  padding-left: 20px;
 }
 
 .user-pangram > input {

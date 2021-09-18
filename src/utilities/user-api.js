@@ -15,10 +15,11 @@ export function getFavorites() {
       Authorization: `Bearer ${getToken()}`
     }
   }
+  return fetch(`${BASE_URL}/favorites`, options).then(res => res.json());
 }
 
-export function manageUserFavorites(typeface) {
-  typeface['favorite'] = true;
+export function manageFavorites(typeface) {
+  // typeface['favorite'] = true;
   const options = {
     method: 'POST',
     headers: {

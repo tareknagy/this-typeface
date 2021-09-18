@@ -44,13 +44,17 @@ async function login(req, res) {
 
 async function manageFavorites(req, res) {
   const user = await User.getUser(req.user._id);
-  const typeface = req.params.typeface;
+  const typeface = Buffer.from(req.params.favorite, 'base64').toString();
   // Delete if there
   if (user.favorites.indexOf(typeface) > -1) {
     user.favorites.splice(user.favorites.indexOf(typeface), 1);
+  } else {
+    user.favorites.push(typeface);
   }
   user.save();
   res.json(user.favorites);
+  // REMOVE CONSOLE LOG AFTER. ----------------->
+  console.log(user, typeface);
 }
 
 // Helper functions

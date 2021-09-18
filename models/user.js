@@ -21,6 +21,9 @@ const userSchema = new Schema({
     },
     favorites: {
         type: Array
+    },
+    projects: {
+        type: Array
     }
 }, {
     timestamps: true,
