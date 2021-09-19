@@ -5,17 +5,7 @@ import Typeface from '../../components/Typeface/Typeface';
 import DownloadExtension from '../../components/DownloadExtension/DownloadExtension';
 import './Typefaces.css'
 
-export default function Typefaces({ inputPangram, thisTypeList}){
-    const [favorites, setFavorites] = useState([]);
-
-    useEffect(function() {
-        async function fetchFavorites() {
-            const favorites = await userAPI.getFavorites();
-            setFavorites(favorites);
-        }
-        fetchFavorites();
-    }, []);
-
+export default function Typefaces({ inputPangram, thisTypeList, favorites, setFavorites, handleAddToFavorites, checkFavorites}){
     return (
         <div className="typefaces-container">
             {thisTypeList.map((typeName, index) => (
@@ -24,6 +14,8 @@ export default function Typefaces({ inputPangram, thisTypeList}){
                     typeName={typeName}
                     favorites={favorites}
                     setFavorites={setFavorites}
+                    handleAddToFavorites={handleAddToFavorites}
+                    checkFavorites={checkFavorites}
                 />
             ))}
         </div>

@@ -3,17 +3,7 @@ import * as userService from '../../utilities/user-service';
 import * as userAPI from '../../utilities/user-api'
 import './Typeface.css'
 
-export default function Typeface({ inputPangram, typeName, favorites, setFavorites }){
-    async function handleAddToFavorites(type) {
-        const favorites = await userAPI.manageFavorites(type);
-        setFavorites(favorites)
-    }
-
-    function checkFavorites(type) {
-        const fav = favorites.filter(t => t.indexOf(type) > -1);
-        return fav.length > 0 ? true : false
-    }
-
+export default function Typeface({ inputPangram, typeName, favorites, setFavorites, handleAddToFavorites, checkFavorites }){
     return (
         <div className="type-card-container">
             <div className="type-card">

@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import { getUser } from '../../utilities/user-service';
 import * as userService from '../../utilities/user-service';
+import * as userAPI from '../../utilities/user-api';
 import './App.css';
 import AuthPage from '../AuthPage/AuthPage';
 import Favorites from '../Favorites/Favorites';
@@ -19,6 +20,24 @@ export default function App() {
   // track input changes
   async function handleInputChange(e) {
     setInputPangram(e.target.value);
+  }
+
+  // Favorites Functions
+  const [favorites, setFavorites] = useState([]);
+  useEffect(function() {
+      async function fetchFavorites() {
+          const favorites = await userAPI.getFavorites();
+          setFavorites(favorites);
+      }
+      fetchFavorites();
+  }, []);
+  async function handleAddToFavorites(type) {
+    const favorites = await userAPI.manageFavorites(type);
+    setFavorites(favorites)
+  }
+  function checkFavorites(type) {
+      const fav = favorites.filter(t => t.indexOf(type) > -1);
+      return fav.length > 0 ? true : false
   }
 
   // toggle header on scroll
@@ -65,10 +84,24 @@ export default function App() {
               </header>
               <Switch>
                 <Route path="/typefaces/favorites">
-                  <Favorites inputPangram={inputPangram} thisTypeList={thisTypeList} />
+                  <Favorites 
+                    inputPangram={inputPangram} 
+                    thisTypeList={thisTypeList}
+                    favorites={favorites} 
+                    setFavorites={setFavorites}
+                    handleAddToFavorites={handleAddToFavorites}
+                    checkFavorites={checkFavorites}
+                  />
                 </Route>
                 <Route path="/typefaces">
-                  <Typefaces inputPangram={inputPangram} thisTypeList={thisTypeList} />
+                  <Typefaces 
+                    inputPangram={inputPangram} 
+                    thisTypeList={thisTypeList}
+                    favorites={favorites} 
+                    setFavorites={setFavorites}
+                    handleAddToFavorites={handleAddToFavorites}
+                    checkFavorites={checkFavorites}
+                  />
                 </Route>
                 <Redirect to="/typefaces" />
               </Switch>
