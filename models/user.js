@@ -4,6 +4,14 @@ const bcrypt = require('bcrypt');
 
 SALT_ROUNDS = 6;
 
+const projectSchema = new Schema ({
+    name: {type: String, required: true},
+    typefaces: {type: Array}
+}, {
+    timestamps: true,
+    toJSON: { virtuals: true }
+});
+
 const userSchema = new Schema({
     name: {type: String, required: true},
     email: {
@@ -22,9 +30,7 @@ const userSchema = new Schema({
     favorites: {
         type: Array
     },
-    projects: {
-        type: Array
-    }
+    projects: [projectSchema]
 }, {
     timestamps: true,
     toJSON: {
