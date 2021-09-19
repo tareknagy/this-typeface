@@ -12,8 +12,6 @@ export default function Typefaces({ inputPangram, thisTypeList}){
         async function fetchFavorites() {
             const favorites = await userAPI.getFavorites();
             setFavorites(favorites);
-            // NEED TO CONVERT THIS TO ARRAY <------------------------- (either here or earlier in the process)
-            console.log(JSON.stringify(favorites))
         }
         fetchFavorites();
     }, []);

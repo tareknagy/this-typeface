@@ -9,6 +9,11 @@ export default function Typeface({ inputPangram, typeName, favorites, setFavorit
         setFavorites(favorites)
     }
 
+    function checkFavorites(type) {
+        const fav = favorites.filter(t => t.indexOf(type) > -1);
+        return fav.length > 0 ? true : false
+    }
+
     return (
         <div className="type-card-container">
             <div className="type-card">
@@ -18,7 +23,7 @@ export default function Typeface({ inputPangram, typeName, favorites, setFavorit
                 <div className="type-card-links">
                     <div onClick={() => handleAddToFavorites(typeName)}>ADD TO PROJECTS</div>
                     <div onClick={() => handleAddToFavorites(typeName)}>
-                        {/* { favorites.indexOf(typeName) > -1 ?  'ADD TO FAVORITES' : 'REMOVE FROM FAVORITES' } */}
+                        { checkFavorites(typeName) ?  'REMOVE FROM FAVORITES' : 'ADD TO FAVORITES'}
                     </div>
                 </div>
                 <div className="type-card-describe">DESCRIBE</div>
