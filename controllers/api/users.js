@@ -7,14 +7,11 @@ module.exports = {
     create,
     login,
     manageFavorites,
-    favorites
+    favorites,
+    projects
 };
 
-async function favorites(req, res) {
-  const user = await User.getUser(req.user._id);
-  res.json(user.favorites);
-}
-
+// User
 async function create(req, res) {
     try {
         // Add user
@@ -42,6 +39,12 @@ async function login(req, res) {
     }
 }
 
+// Favorites
+async function favorites(req, res) {
+  const user = await User.getUser(req.user._id);
+  res.json(user.favorites);
+}
+
 async function manageFavorites(req, res) {
   const user = await User.getUser(req.user._id);
   const typeface = Buffer.from(req.params.favorite, 'base64').toString();
@@ -51,10 +54,18 @@ async function manageFavorites(req, res) {
   } else {
     user.favorites.push(typeface);
   }
+  // const testProject = {name: '004-iOHsABranding'}
+  // user.projects.push(testProject);
   user.save();
   res.json(user.favorites);
   // REMOVE CONSOLE LOG AFTER. ----------------->
   console.log(user, typeface);
+}
+
+// Projects
+async function projects(req, res) {
+  const user = await User.getUser(req.user._id);
+  res.json(user.projects);
 }
 
 // Helper functions

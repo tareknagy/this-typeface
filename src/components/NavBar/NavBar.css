@@ -2,20 +2,52 @@ nav {
     position: fixed;
     top: 0;
     right: 0;
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
+    padding-right: 20px;
+    padding-left: 20px;
     width: 30%;
-    height: 80px;
-    margin-bottom: 20px;
-    background-color: black;
+    color: white;
 }
+
+ul {
+    width: 100%;
+    margin: 0px;
+    transition: ease-in-out 300ms;
+    list-style-type: none;
+}
+
+li {
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+    white-space: nowrap;
+}
+
+.links-projects {
+    text-align: right;
+    text-transform: uppercase;
+    width: 100%;
+    transition: ease-in-out 300ms;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+    max-height: 300px;
+    overflow-y: scroll;
+}
+
+.links-projects.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
 
 .logo {
     max-height: 50px;
 }
 
 .links {
-    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    height: 80px;
 }

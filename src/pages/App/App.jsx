@@ -24,25 +24,52 @@ export default function App() {
 
   // Favorites Functions
   const [favorites, setFavorites] = useState([]);
+  
   useEffect(function() {
-      async function fetchFavorites() {
-          const favorites = await userAPI.getFavorites();
-          setFavorites(favorites);
-      }
-      fetchFavorites();
+    async function fetchFavorites() {
+      const favorites = await userAPI.getFavorites();
+      setFavorites(favorites);
+    }
+    fetchFavorites();
   }, []);
+  
   async function handleAddToFavorites(type) {
     const favorites = await userAPI.manageFavorites(type);
     setFavorites(favorites)
   }
+  
   function checkFavorites(type) {
-      const fav = favorites.filter(t => t.indexOf(type) > -1);
-      return fav.length > 0 ? true : false
+    const fav = favorites.filter(t => t.indexOf(type) > -1);
+    return fav.length > 0 ? true : false
+  }
+
+  // Project Functions
+  const [projects, setProjects] = useState([]);
+  const [recentProjects, setRecentProjects] = useState([]);
+  
+  useEffect(function() {
+    async function fetchProjects() {
+      const projects = await userAPI.getProjects();
+      // sort by name
+      const projectsByName = projects.slice().sort((a, b) => (a.name < b.name ? -1 : 1))
+      setProjects(projectsByName);
+      // set 3 most recent
+      const projectsByDate = projects.slice().sort((a, b) => (a.updatedAt > b.updatedAt ? -1 : 1)).slice(0, 3)
+      setRecentProjects(projectsByDate);
+    }
+    fetchProjects();
+  }, []);
+
+  async function createProject(project) {
+    const projects = await userAPI.createProject(project);
+    setProjects(projects);
   }
 
   // toggle header on scroll
   const headerRef = useRef(null);
+  
   const [y, setY] = useState(window.scrollY);
+  
   const handleHeader = useCallback(e => {
       const window = e.currentTarget;
       if (y > window.scrollY) {
@@ -53,10 +80,10 @@ export default function App() {
       setY(window.scrollY);
     }, [y]
   );
+  
   useEffect(() => {
     setY(window.scrollY);
     window.addEventListener("scroll", handleHeader);
-
     return () => {
       window.removeEventListener("scroll", handleHeader);
     };
@@ -68,7 +95,13 @@ export default function App() {
         <>
           { thisTypeList ?
             <>
-              <NavBar user={user} setUser={setUser} />
+              <NavBar 
+                user={user} 
+                setUser={setUser}
+                projects={projects}
+                setProjects={setProjects}
+                recentProjects={recentProjects}
+              />
               <div style={{height:'140px'}}></div>
               <header ref={headerRef}>
                 <img className="logo" src={logo} alt="This Typeface Icon" />
