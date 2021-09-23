@@ -38,7 +38,7 @@ export default function NavBar({ user, setUser, projects, recentProjects}) {
         &nbsp; | &nbsp;
         <NavLink exact activeStyle={{textDecoration: "underline dotted"}} to="/typefaces/projects" onClick={projOnClick}>PROJECTS</NavLink>
         &nbsp; | &nbsp;
-        <Link to="" projOnClick={handleLogOut}>LOGOUT</Link>
+        <Link to="" onClick={handleLogOut}>LOGOUT</Link>
       </div>
       <div ref ={showProjectList} className={`links-projects ${projIsActive ? 'active' : 'inActive'}`}>
         <ul>

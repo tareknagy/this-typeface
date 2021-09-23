@@ -30,6 +30,15 @@ body {
   height: 100vh;
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+}
+
 code {
   font-family: 'America', 'Helvetica Neue', sans-serif;
 }
@@ -68,24 +77,19 @@ code {
   overflow-y: scroll;
 }
 
-/* .section-heading {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  background-color: var(--tan-1);
-  color: var(--text-dark);
-  border: .1vmin solid var(--tan-3);
-  border-radius: 1vmin;
-  padding: .6vmin;
-  text-align: center;
-  font-size: 2vmin;
-} */
-
 .form-container {
   padding: 3vmin;
-  background-color: var(--tan-1);
-  border: .1vmin solid var(--tan-3);
-  border-radius: 1vmin;
+  border: .1vmin solid white;
+  max-width: 700px;
+  min-height: 250px;
+}
+
+.auth-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100vw;
 }
 
 p.error-message {
@@ -97,19 +101,21 @@ form {
   display: grid;
   grid-template-columns: 1fr 3fr;
   gap: 1.25vmin;
-  color: var(--text-light);
+  color: white;
 }
 
 label {
   font-size: 2vmin;
   display: flex;
   align-items: center;
+  text-transform: uppercase;
 }
 
 input {
   padding: 1vmin;
+  height: 50px;
   font-size: 14pt;
-  border: .1vmin solid var(--tan-3);
+  border: .1vmin solid white;
   color: white;
   background-color: transparent;
   background-image: none !important; /* prevent lastpass */
@@ -126,9 +132,12 @@ button, a.button {
   font-size: 14pt;
   text-decoration: none;
   text-align: center;
-  border: .1vmin solid var(--tan-2);
+  border: .1vmin solid white;
   outline: none;
   cursor: pointer;
+  margin-bottom: 50px;
+  height: 50px;
+
 }
 
 button.btn-sm {
@@ -136,14 +145,15 @@ button.btn-sm {
   padding: .6vmin .8vmin;
 }
 
-button.btn-xs {
+button.btn-xs { 
   font-size: 1vmin;
   padding: .4vmin .5vmin;
 }
 
 button:disabled, form:invalid button[type="submit"] {
   cursor: not-allowed;
-  background-color: var(--tan-4);
+  background-color: black;
+  color: darkgray;
 }
 
 button[type="submit"] {

@@ -58,8 +58,6 @@ async function manageFavorites(req, res) {
   // user.projects.push(testProject);
   user.save();
   res.json(user.favorites);
-  // REMOVE CONSOLE LOG AFTER. ----------------->
-  console.log(user, typeface);
 }
 
 // Projects

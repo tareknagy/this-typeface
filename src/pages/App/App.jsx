@@ -52,6 +52,7 @@ export default function App() {
       const projects = await userAPI.getProjects();
       // sort by name
       const projectsByName = projects.slice().sort((a, b) => (a.name < b.name ? -1 : 1))
+
       setProjects(projectsByName);
       // set 3 most recent
       const projectsByDate = projects.slice().sort((a, b) => (a.updatedAt > b.updatedAt ? -1 : 1)).slice(0, 3)
@@ -72,9 +73,9 @@ export default function App() {
   
   const handleHeader = useCallback(e => {
       const window = e.currentTarget;
-      if (y > window.scrollY) {
+      if (headerRef && y > window.scrollY) {
         headerRef.current.classList.remove('header-scroll');
-      } else if (y < window.scrollY) {
+      } else if (headerRef && y < window.scrollY) {
         headerRef.current.classList.add('header-scroll');
       }
       setY(window.scrollY);

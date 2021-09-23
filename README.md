@@ -4,19 +4,26 @@
 
 A tool to help users find the perfect typeface for every project.
 
+[Download the extension here (required)](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
 [Access the tool here](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
 ## Table of Content
 
-X
+- Shopify Internship - Project Write Up.
+- Background
+- Features
+- Design
+- Development
+- About Me
 
 ## Background
 
 - Tool was originally for personal use.
 - Came from a need to more easily sort through the endless typefaces on my computer and those on the internet.
 - My previous workflow of creating multiple text boxes in Illustrator and sampling different fonts was getting harder and harder as I collected more fonts.
-- So I created a tool that allows me to sample all the typefaces on my computer and some in select web repositories.
-- Now I can create multiple projects, and save those typefaces to those projects so i can go back to them later. I can also tag them with visual keywords to make future hunts more seemless.
+- So I created a tool that allows me to sample all the typefaces on my computer and (coming soon) some in select web repositories.
+- Now I can create multiple projects, and save those typefaces to those projects so i can go back to them later. I can also tag them with visual keywords to make future hunts more seemless (search bar and filters coming soon).
 
 ## Features
 
@@ -52,11 +59,28 @@ x - Thumbnails, components breakdown for React.
 
 ## Development
 
+### Stack
+
+### Data Schema
+
+
+## About Me
+
+I'm Tarek Nagy, a graphic designer with full-stack software development skills. I’m media agnostic and love finding inventive ways to bring good designs to life. I’m especially passionate about typography, conceptual designs, and creative web development.
+
+See more of my work on [instagram](http://instagram.com/no_tarek) or at [tareknagy.com](http://tareknagy.com).
 
 
 
 
-### Ideation
+
+
+
+
+
+
+
+## Ideation
 
 Target audience:
 - Designers primarily, but anyone that wants to create a logotype.
