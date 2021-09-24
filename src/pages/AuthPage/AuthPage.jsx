@@ -7,13 +7,15 @@ export default function AuthPage({ setUser }){
     console.log('hi');
     return (
         <main>
-            <h1>AuthPage</h1>
-            {showLogin ? 
-                <SignUpForm setUser={setUser} />
-                :
-                <LoginForm setUser={setUser} />
-            }
-            <button onClick={() => setShowLogin(!showLogin)}>{showLogin ? 'EXISTING USER? LOG IN HERE' : 'NEW USER? SIGN UP HERE'}</button>
+            <div className="auth-container">
+                <h1>AuthPage</h1>
+                {showLogin ? 
+                    <SignUpForm setUser={setUser} />
+                    :
+                    <LoginForm setUser={setUser} />
+                }
+                <button onClick={() => setShowLogin(!showLogin)}>{showLogin ? 'EXISTING USER? LOG IN HERE' : 'NEW USER? SIGN UP HERE'}</button>
+            </div>
         </main>
     );
 }

@@ -1,28 +1,16 @@
 import { Link, NavLink } from 'react-router-dom';
 import * as userService from '../../utilities/user-service';
 import './NavBar.css';
-import { useState, useRef, useEffect } from 'react';
+import { useRef } from 'react';
+import { useDetectOutsideClick } from '../../utilities/useDetectOutsideClick'
 
 export default function NavBar({ user, setUser, projects, recentProjects}) {
 
+
   // Project List Dropdown
   const showProjectList = useRef(null);
-  const [projIsActive, setProjIsActive] = useState(false);
-  const projOnClick = () => setProjIsActive(!projIsActive);
-
-  // Close project list on any click.
-  useEffect(() => {
-    const pageClickEvent = () => {
-      setProjIsActive(!projIsActive);
-    }
-    if (projIsActive) {
-      window.addEventListener('click', pageClickEvent);
-    }
-    return () => {
-      window.removeEventListener('click', pageClickEvent);
-    }
-
-  }, [projIsActive]);
+  const [isActive, setIsActive] = useDetectOutsideClick(showProjectList, false);
+  const projOnClick = () => setIsActive(!isActive);
 
   function handleLogOut() {
     userService.logOut();
@@ -40,8 +28,8 @@ export default function NavBar({ user, setUser, projects, recentProjects}) {
         &nbsp; | &nbsp;
         <Link to="" onClick={handleLogOut}>LOGOUT</Link>
       </div>
-      <div ref ={showProjectList} className={`links-projects ${projIsActive ? 'active' : 'inActive'}`}>
-        <ul>
+      <div ref ={showProjectList} className={`links-projects ${isActive ? 'active' : 'inActive'}`}>
+        {/* <ul>
           <li>CREATE NEW</li>
           <li>-----</li>
         </ul>
@@ -55,7 +43,8 @@ export default function NavBar({ user, setUser, projects, recentProjects}) {
           {projects && projects.map((project, index) => (
             <li>{project.name}</li>
           ))}
-        </ul>
+        </ul> */}
+        COMING SOON
       </div>
     </nav>
   );

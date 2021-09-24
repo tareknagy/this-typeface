@@ -38,7 +38,7 @@ li {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
-  }
+}
 
 .logo {
     max-height: 50px;

@@ -86,10 +86,22 @@
     padding: 10px;
     font-size: 14pt;
     text-transform: uppercase;
+    color: white;
     transition: 300ms;
     text-overflow: ellipsis;
     overflow-x: hidden;
     white-space: nowrap;
     width: 25%;
+    opacity: 0;
     visibility: hidden;
+    transform: translateY(-20px);
+    transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+    max-height: 300px;
+    overflow-y: scroll;
 }
+
+.type-card-project-list.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
