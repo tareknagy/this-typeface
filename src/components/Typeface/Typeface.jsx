@@ -8,11 +8,16 @@ export default function Typeface({ inputPangram, typeName, favorites, setFavorit
     const showProjectList = useRef(null);
     const [isActive, setIsActive] = useDetectOutsideClick(showProjectList, false);
     const projOnClick = () => setIsActive(!isActive);
+    const typeAvailable = JSON.parse(localStorage.getItem('thisTypeList')).indexOf(typeName) > -1;
 
     return (
         <div className="type-card-container">
             <div className="type-card">
-                <div className="type-card-pangram" style={{ fontFamily:typeName }}>{ inputPangram.length > 0 ? inputPangram : typeName }</div>
+                {typeAvailable ? 
+                    <div className="type-card-pangram" style={{ fontFamily:typeName }}>{ typeName }</div>
+                :
+                    <div className="type-card-pangram" style={{ fontSize:'12pt', color:'darkgray' }}>NOT AVAILABLE ON THIS COMPUTER</div>
+                }
                 <div className="type-card-name">{ typeName }</div>
                 <div className="type-card-adjectives">DESCRIPTIONS</div>
                 <div className="type-card-links">
@@ -29,5 +34,5 @@ export default function Typeface({ inputPangram, typeName, favorites, setFavorit
                 </div>
             </div>
         </div>
-    )
+    ) 
 }
