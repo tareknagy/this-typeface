@@ -179,7 +179,18 @@ header {
   background-color: black;
   transition: 300ms ease;
   z-index: 1;
-  
+}
+
+.auth-header {
+  display: flex;
+  justify-content: space-between;
+  width: 100vw;
+}
+
+.auth-header button {
+  height: 50px;
+  margin: 20px;
+  border: none;
 }
 
 .header-scroll {
