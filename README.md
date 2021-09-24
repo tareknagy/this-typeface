@@ -34,7 +34,7 @@ A tool to help users find the perfect typeface for every project.
 -	The app was built on a MERN stack for the single page user experience. I then added a Chrome extension to populate a list of user-installed fonts (this was the biggest technical challenge, as Javascript prevents command line queries). 
 
 ## Reflection
-- If i have more time i would love to do another iteration of the tool. It’s fascinating to me how much I learn as I go in this space, and it would be wonderful to do yet another iteration to see how much conceptually I can plan, how much more strategically I can tackle the work, how much more efficient I can get, and how much better the results can be. 
+- If i have more time i would love to do another iteration of the tool. It’s fascinating to me how much I learn as I go in this space, and it would be wonderful to do yet another iteration to see how much conceptually I can plan, how much more strategically I can tackle the work, how much more efficient I can get, and how much better the results can be. I also wish I had more time to work on copy and content for the app, to make it more than just a jump-right-in tool. Finally, Brainstorming options to the site mobile compatible (it isn't now, as it depends on installed fonts -- which isn't a thing on mobile yet).
 - I'm always looking for feedback in me design or my code. As I'm newer to code, i would love feedback on how to write better code (I see ways myself, but getting input from a more experience developer will help me discover new ways), how to abstract react code further and make it more modular. More UX input from a design perspective.
 
 ## Features
