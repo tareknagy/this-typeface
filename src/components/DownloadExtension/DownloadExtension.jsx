@@ -9,7 +9,9 @@ export default function Typefaces(){
             <img className="logo" src={logo} alt="This Typeface Icon" />
             <div className="download-container">
                 <h1>YOU NEED TO DOWNLOAD OUR CHROME EXTENSION</h1>
-                <p>This website needs a chrome extension to work! <a href="https://github.com/tareknagy/this-typeface-extension">Download it by clicking here.</a></p>
+                <p>This website needs a chrome extension to work! <a href="https://github.com/tareknagy/this-typeface-extension/archive/refs/heads/master.zip">Download it by clicking here.</a></p>
+                <p>You then need to unzip it, go to <a href="chrome://extensions">chrome://extensions</a>, turn on Developer mode, and click "Load unpacked" before chosing the unzipped folder</p>
+                <p>In a few weeks this process will be easier when the extension is added to the Chrome store. Thanks for your patience.</p>
                 <h3>WHY DO I NEED TO DOWNLOAD IT?</h3>
                 <p>It's how this website determines what fonts you have installed on your computer.</p>
                 <h3>IS IT SAFE?</h3>
