@@ -9,12 +9,13 @@ export default function Typeface({ inputPangram, typeName, favorites, setFavorit
     const [isActive, setIsActive] = useDetectOutsideClick(showProjectList, false);
     const projOnClick = () => setIsActive(!isActive);
     const typeAvailable = JSON.parse(localStorage.getItem('thisTypeList')).indexOf(typeName) > -1;
+    const pangramDisplay = inputPangram ? inputPangram : typeName;
 
     return (
         <div className="type-card-container">
             <div className="type-card">
-                {typeAvailable ? 
-                    <div className="type-card-pangram" style={{ fontFamily:typeName }}>{ typeName }</div>
+                {typeAvailable ?
+                    <div className="type-card-pangram" style={{ fontFamily:typeName }}>{ pangramDisplay }</div>
                 :
                     <div className="type-card-pangram" style={{ fontSize:'12pt', color:'darkgray' }}>NOT AVAILABLE ON THIS COMPUTER</div>
                 }
