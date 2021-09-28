@@ -15,7 +15,7 @@ import logo from '../../images/logo_white.png';
 export default function App() {
   const [thisTypeList, setThisTypeList] = useState(userService.getTypefaceList());
   const [user, setUser] = useState(getUser());
-  const [inputPangram, setInputPangram] = useState([]);
+  const [inputPangram, setInputPangram] = useState(null);
 
   // track input changes
   async function handleInputChange(e) {
