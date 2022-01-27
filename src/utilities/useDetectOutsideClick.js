@@ -6,8 +6,12 @@ export const useDetectOutsideClick = (el, initialState) => {
       // Close project list on any click.
     useEffect(() => {
         const pageClickEvent = (e) => {
-        setIsActive(!isActive);
+          // ignore if it's an input box
+          if (!(e.target instanceof HTMLInputElement)) {
+            setIsActive(!isActive);
+          }
         }
+        // add and remove event listeners if it's in/active
         if (isActive) {
         window.addEventListener('click', pageClickEvent);
         }

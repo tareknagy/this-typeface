@@ -1,17 +1,36 @@
 import { Link, NavLink } from 'react-router-dom';
 import * as userService from '../../utilities/user-service';
 import './NavBar.css';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { useDetectOutsideClick } from '../../utilities/useDetectOutsideClick'
 
 export default function NavBar({ user, setUser, projects, recentProjects}) {
-
-
-  // Project List Dropdown
   const showProjectList = useRef(null);
   const [isActive, setIsActive] = useDetectOutsideClick(showProjectList, false);
-  const projOnClick = () => setIsActive(!isActive);
+  const [newProject, setNewProject] = useState('');
 
+  // Handle input changes
+  async function handleInputChange(e) {
+    setNewProject(e.target.value);
+  }
+
+  // Project List Dropdown
+  function projOnClick(e) {
+    // stop redirect until sublink selected
+    e.preventDefault();
+    setIsActive(!isActive)
+  }
+
+  // Create new project
+  function handleAddNewProject(e)  {
+    e.preventDefault();
+    // Add New Project
+    
+    // Clear Input Value
+    setNewProject('');
+  }
+
+  // Log Out user
   function handleLogOut() {
     userService.logOut();
     setUser(null);
@@ -24,27 +43,32 @@ export default function NavBar({ user, setUser, projects, recentProjects}) {
         &nbsp; | &nbsp;
         <NavLink exact activeStyle={{textDecoration: "underline dotted"}} to="/typefaces/favorites">FAVORITES</NavLink>
         &nbsp; | &nbsp;
-        <NavLink exact activeStyle={{textDecoration: "underline dotted"}} to="/typefaces/projects" onClick={projOnClick}>PROJECTS</NavLink>
+        <NavLink activeStyle={{textDecoration: "underline dotted"}} to="/typefaces/projects/" onClick={projOnClick}>PROJECTS</NavLink>
         &nbsp; | &nbsp;
         <Link to="" onClick={handleLogOut}>LOGOUT</Link>
       </div>
-      <div ref ={showProjectList} className={`links-projects ${isActive ? 'active' : 'inActive'}`}>
-        {/* <ul>
-          <li>CREATE NEW</li>
-          <li>-----</li>
-        </ul>
+      <div ref ={showProjectList} className={`links-projects ${isActive ? 'active' : 'inActive'}`}>              
+        <div className='new-project-input'>
+          <form onSubmit={handleAddNewProject}>
+            <input 
+              type={newProject}
+              placeholder="New Project"
+              value={newProject}
+              onChange={handleInputChange}
+              />
+            <button type="submit">+</button>
+          </form>
+        </div>
         <ul>
           {recentProjects && recentProjects.map((project, index) => (
             <li>{project.name}</li>
           ))}
-          <li>-----</li>
         </ul>
         <ul>
           {projects && projects.map((project, index) => (
             <li>{project.name}</li>
           ))}
-        </ul> */}
-        COMING SOON
+        </ul>
       </div>
     </nav>
   );
