@@ -4,7 +4,7 @@
 
 A tool to help users find the perfect typeface for every project.
 
-[Download the extension here (required)](https://github.com/tareknagy/this-typeface-extension/archive/refs/heads/master.zip)
+[Download the extension here (required)](https://chrome.google.com/webstore/detail/this-typeface/pidkomkceopfhopoiihendnkakmbhiaj)
 
 [Access the tool here](http://thistypeface.com)
 
@@ -12,12 +12,12 @@ A tool to help users find the perfect typeface for every project.
 
 ## Table of Content
 
-- Shopify Internship - Project Write Up.
+- Project Write Up.
 - Features
 - Technologies Used
 - About Me
 
-## Shopify Internship - Project Write Up.
+## Project Write Up.
 
 ### The Problem
 -	I like fonts. I like fonts a lot. I might even go as far as calling it an obsession. While I’m not usually one to hoard things, fonts bring about an exception to this where I have found myself with a massive font library collected from every open-source and free-trial font I could find on the internet.
@@ -33,10 +33,6 @@ A tool to help users find the perfect typeface for every project.
 -	I gave the app the overall feel of a high-end type foundry for familiarity and ensured that the samples were unobscured by making links appear only on hover.
 -	The app was built on a MERN stack for the single page user experience. I then added a Chrome extension to populate a list of user-installed fonts (this was the biggest technical challenge, as Javascript prevents command line queries). 
 
-## Reflection
-- If i have more time i would love to do another iteration of the tool. It’s fascinating to me how much I learn as I go in this space, and it would be wonderful to do yet another iteration to see how much conceptually I can plan, how much more strategically I can tackle the work, how much more efficient I can get, and how much better the results can be. I also wish I had more time to work on copy and content for the app, to make it more than just a jump-right-in tool. Finally, Brainstorming options to the site mobile compatible (it isn't now, as it depends on installed fonts -- which isn't a thing on mobile yet).
-- I'm always looking for feedback in me design or my code. As I'm newer to code, i would love feedback on how to write better code (I see ways myself, but getting input from a more experience developer will help me discover new ways), how to abstract react code further and make it more modular. More UX input from a design perspective.
-
 ## Features
 
 ### Current
@@ -50,9 +46,9 @@ The tool currently allows users to see all the typefaces they have installed on 
 ### Upcoming
 
 - The ability to create "projects" and save typefaces to them as you see fit.
+- The ability to search for typefaces / refine the list by name.
 - The ability to add adjectives to different typefaces so as to better sort through them.
 - The ability to filter by these adjectives.
-- The ability to search for typefaces / refine the list by name.
 
 ## Technologies Used
 - Mongoose / MongoDB to store user and nomination data.
@@ -62,7 +58,7 @@ The tool currently allows users to see all the typefaces they have installed on 
 
 ## About Me
 
-I'm Tarek Nagy, a graphic designer with full-stack software development skills. I’m media agnostic and love finding inventive ways to bring good designs to life. I’m especially passionate about typography, conceptual designs, and creative web development.
+I'm Tarek Nagy, a graphic designer and full-stack developer. I’m media agnostic and love finding inventive ways to bring good designs to life. I’m especially passionate about typography, conceptual designs, and creative web development.
 
 See more of my work on [instagram](http://instagram.com/no_tarek) or at [tareknagy.com](http://tareknagy.com).
 
