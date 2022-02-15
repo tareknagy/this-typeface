@@ -4,7 +4,7 @@ import './NavBar.css';
 import { useRef, useState } from 'react';
 import { useDetectOutsideClick } from '../../utilities/useDetectOutsideClick'
 
-export default function NavBar({ user, setUser, projects, recentProjects}) {
+export default function NavBar({ user, setUser, projects, handleCreateProject, recentProjects}) {
   const showProjectList = useRef(null);
   const [isActive, setIsActive] = useDetectOutsideClick(showProjectList, false);
   const [newProject, setNewProject] = useState('');
@@ -22,10 +22,10 @@ export default function NavBar({ user, setUser, projects, recentProjects}) {
   }
 
   // Create new project
-  function handleAddNewProject(e)  {
+  function createProject(e)  {
     e.preventDefault();
     // Add New Project
-    
+    handleCreateProject(newProject);
     // Clear Input Value
     setNewProject('');
   }
@@ -49,7 +49,7 @@ export default function NavBar({ user, setUser, projects, recentProjects}) {
       </div>
       <div ref ={showProjectList} className={`links-projects ${isActive ? 'active' : 'inActive'}`}>              
         <div className='new-project-input'>
-          <form onSubmit={handleAddNewProject}>
+          <form onSubmit={createProject}>
             <input 
               type={newProject}
               placeholder="New Project"

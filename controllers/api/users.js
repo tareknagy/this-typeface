@@ -8,7 +8,8 @@ module.exports = {
     login,
     manageFavorites,
     favorites,
-    projects
+    projects,
+    createProject
 };
 
 // User
@@ -41,6 +42,7 @@ async function login(req, res) {
 
 // Favorites
 async function favorites(req, res) {
+  if (!req.user) return null;
   const user = await User.getUser(req.user._id);
   res.json(user.favorites);
 }
@@ -54,16 +56,37 @@ async function manageFavorites(req, res) {
   } else {
     user.favorites.push(typeface);
   }
-  // const testProject = {name: '004-iOHsABranding'}
-  // user.projects.push(testProject);
   user.save();
   res.json(user.favorites);
 }
 
 // Projects
 async function projects(req, res) {
+  if (!req.user) return null;
   const user = await User.getUser(req.user._id);
   res.json(user.projects);
+}
+
+async function createProject(req,res) {
+  const user = await User.getUser(req.user._id);
+  const project = {
+    name: Buffer.from(req.params.project, 'base64').toString().slice(1, -1)
+  }
+  // If exists, return error
+  let projExists = false
+  user.projects.forEach((proj) => {
+    if (proj.name === project.name) {
+      projExists = true;
+    }
+  })
+  // Add project if it doesn't exist
+  if (!projExists) {
+    user.projects.push(project);
+    user.save();
+    res.json(user.projects);
+  } else {
+    // Send duplicate error message back to user
+  }
 }
 
 // Helper functions

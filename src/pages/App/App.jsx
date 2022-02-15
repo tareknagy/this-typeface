@@ -46,6 +46,11 @@ export default function App() {
   // Project Functions
   const [projects, setProjects] = useState([]);
   const [recentProjects, setRecentProjects] = useState([]);
+
+  async function handleCreateProject(name) {
+    const projects = await userAPI.createProject(name);
+    setProjects(projects);
+  }
   
   useEffect(function() {
     async function fetchProjects() {
@@ -60,11 +65,6 @@ export default function App() {
     }
     fetchProjects();
   }, []);
-
-  async function createProject(project) {
-    const projects = await userAPI.createProject(project);
-    setProjects(projects);
-  }
 
   // toggle header on scroll
   const headerRef = useRef(null);
@@ -102,6 +102,7 @@ export default function App() {
                 projects={projects}
                 setProjects={setProjects}
                 recentProjects={recentProjects}
+                handleCreateProject={handleCreateProject}
               />
               <div style={{height:'140px'}}></div>
               <header ref={headerRef}>

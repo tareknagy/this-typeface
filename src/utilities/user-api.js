@@ -63,7 +63,7 @@ export function getProjects() {
 export function createProject(project) {
   const options = {
     method: 'POST',
-    header: {
+    headers: {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${getToken()}`
     }

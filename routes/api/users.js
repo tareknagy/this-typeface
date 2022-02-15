@@ -16,5 +16,7 @@ router.post('/favorites/:favorite', usersCtrl.manageFavorites)
 // Projects
 // GET /api/users
 router.get('/projects', usersCtrl.projects)
+// POST /api/users
+router.post('/projects/:project', usersCtrl.createProject)
 
 module.exports = router;
