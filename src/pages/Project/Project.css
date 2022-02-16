@@ -3,7 +3,16 @@
     padding-top: 40px;
 }
 
+.project-details {
+    margin-left: 20px;
+    margin-bottom: 40px;
+}
+
+.project-label {
+    color: var(--text-light);
+}
+
 .project-title {
-    margin: 20px;
-    color: white;
+    color: var(--white);
+    font-size: 18pt;
 }

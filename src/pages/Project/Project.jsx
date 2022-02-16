@@ -33,8 +33,13 @@ export default function Project({ match, inputPangram, thisTypeList, favorites, 
                     <Helmet>
                         <title>{project.name} - This Typeface</title>
                     </Helmet>
-                    <div className="project-title">
-                        <h2>PROJECT: {project.name}</h2>
+                    <div className="project-details">
+                        <div className="project-label">
+                            PROJECT: <br></br>
+                        </div>
+                        <div className="project-title">
+                            {project.name}
+                        </div>
                     </div>
                     {project.typefaces && project.typefaces.map((typeName, index) => (
                         <Typeface 
