@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef, useCallback } from 'react';
+import { Helmet } from 'react-helmet';
 import * as userService from '../../utilities/user-service';
 import * as userAPI from '../../utilities/user-api'
 import Typeface from '../../components/Typeface/Typeface';
@@ -37,6 +38,9 @@ export default function Typefaces({ inputPangram, thisTypeList, favorites, setFa
 
     return (
         <div className="typefaces-container">
+            <Helmet>
+                <title>All - This Typeface</title>
+            </Helmet>
             {types && types.map((typeName, index) => {
                 if (types.length === index + 1) {
                     return <Typeface 

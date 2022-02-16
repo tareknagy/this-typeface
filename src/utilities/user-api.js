@@ -70,3 +70,12 @@ export function createProject(project) {
   }
   return fetch(`${BASE_URL}/projects/${btoa(JSON.stringify(project))}`, options).then(res => res.json());
 }
+
+export function getProject(id) {
+  const options = {
+    headers: {
+      Authorization: `Bearer ${getToken()}`
+    }
+  }
+  return fetch(`${BASE_URL}/projects/${id}`, options).then(res => res.json());
+}

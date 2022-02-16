@@ -6,7 +6,8 @@ import * as userAPI from '../../utilities/user-api';
 import './App.css';
 import AuthPage from '../AuthPage/AuthPage';
 import Favorites from '../Favorites/Favorites';
-import Typefaces from '../Typefaces/Typefaces'
+import Typefaces from '../Typefaces/Typefaces';
+import Project from '../Project/Project';
 import NavBar from '../../components/NavBar/NavBar';
 import DownloadExtension from '../../components/DownloadExtension/DownloadExtension';
 import logo from '../../images/logo_white.png';
@@ -120,6 +121,16 @@ export default function App() {
               <Switch>
                 <Route path="/typefaces/favorites">
                   <Favorites 
+                    inputPangram={inputPangram} 
+                    thisTypeList={thisTypeList}
+                    favorites={favorites} 
+                    setFavorites={setFavorites}
+                    handleAddToFavorites={handleAddToFavorites}
+                    checkFavorites={checkFavorites}
+                  />
+                </Route>
+                <Route path="/typefaces/projects/:id">
+                  <Project 
                     inputPangram={inputPangram} 
                     thisTypeList={thisTypeList}
                     favorites={favorites} 

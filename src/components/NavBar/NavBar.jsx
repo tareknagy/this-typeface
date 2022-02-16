@@ -61,12 +61,12 @@ export default function NavBar({ user, setUser, projects, handleCreateProject, r
         </div>
         <ul>
           {recentProjects && recentProjects.map((project, index) => (
-            <li>{project.name}</li>
+            <li><Link to={`/typefaces/projects/${project._id}`}>{project.name}</Link></li>
           ))}
         </ul>
         <ul>
           {projects && projects.map((project, index) => (
-            <li>{project.name}</li>
+            <li><Link to={`/typefaces/projects/${project._id}`}>{project.name}</Link></li>
           ))}
         </ul>
       </div>

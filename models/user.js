@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const bcrypt = require('bcrypt');
+const { projects } = require('../controllers/api/users');
 
 SALT_ROUNDS = 6;
 
@@ -54,6 +55,21 @@ userSchema.pre('save', function(next) {
 
 userSchema.statics.getUser = async function(userId) {
     return this.findOne({_id: userId})
+}
+
+userSchema.statics.getProject = async function(projectID) {
+    // return this.findOne({_id: userId, "projects._id": projectID})
+    // return this.findOne({"projects._id": projectID}, "projects._id projects.typefaces", function (err, project) {
+    //     if (err) return handleError(err)
+    //     project.projects.forEach((p) => {
+    //         if (p._id.toString() === projectID) {
+    //             console.log(p)
+    //             return p
+    //         } 
+    //     })
+    // })
+    
+    return this.findOne({"projects._id": projectID}, "projects._id projects.typefaces projects.name")
 }
 
 module.exports = mongoose.model('User', userSchema);

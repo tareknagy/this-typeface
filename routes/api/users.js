@@ -18,5 +18,7 @@ router.post('/favorites/:favorite', usersCtrl.manageFavorites)
 router.get('/projects', usersCtrl.projects)
 // POST /api/users
 router.post('/projects/:project', usersCtrl.createProject)
+// GET /api/users -- Single Project
+router.get('/projects/:project', usersCtrl.getProject)
 
 module.exports = router;

@@ -9,7 +9,8 @@ module.exports = {
     manageFavorites,
     favorites,
     projects,
-    createProject
+    createProject,
+    getProject
 };
 
 // User
@@ -67,7 +68,7 @@ async function projects(req, res) {
   res.json(user.projects);
 }
 
-async function createProject(req,res) {
+async function createProject(req, res) {
   const user = await User.getUser(req.user._id);
   const project = {
     name: Buffer.from(req.params.project, 'base64').toString().slice(1, -1)
@@ -87,6 +88,15 @@ async function createProject(req,res) {
   } else {
     // Send duplicate error message back to user
   }
+}
+// View Single Project
+async function getProject(req, res) {
+  // const user = await User.getUser(req.user._id);
+  const project = await User.getProject(req.params.project);
+  // project.projects[7].typefaces.push('"Agrandir Variable"')
+  // project.save();
+  console.log('yeaaaa', project)
+  res.json(project);
 }
 
 // Helper functions
