@@ -58,17 +58,6 @@ userSchema.statics.getUser = async function(userId) {
 }
 
 userSchema.statics.getProject = async function(projectID) {
-    // return this.findOne({_id: userId, "projects._id": projectID})
-    // return this.findOne({"projects._id": projectID}, "projects._id projects.typefaces", function (err, project) {
-    //     if (err) return handleError(err)
-    //     project.projects.forEach((p) => {
-    //         if (p._id.toString() === projectID) {
-    //             console.log(p)
-    //             return p
-    //         } 
-    //     })
-    // })
-    
     return this.findOne({"projects._id": projectID}, "projects._id projects.typefaces projects.name")
 }
 

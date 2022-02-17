@@ -7,7 +7,7 @@ import DownloadExtension from '../../components/DownloadExtension/DownloadExtens
 import './Typefaces.css'
 import useTypeList from '../../utilities/useTypeList';
 
-export default function Typefaces({ inputPangram, thisTypeList, favorites, setFavorites, handleAddToFavorites, checkFavorites}){
+export default function Typefaces({ inputPangram, thisTypeList, favorites, setFavorites, handleAddToFavorites, checkFavorites, projects, recentProjects, handleAddToProject}){
     const [query, setQuery] = useState('');
     const [pageNumber, setPageNumber] = useState(1);
 
@@ -50,6 +50,9 @@ export default function Typefaces({ inputPangram, thisTypeList, favorites, setFa
                         setFavorites={setFavorites}
                         handleAddToFavorites={handleAddToFavorites}
                         checkFavorites={checkFavorites}
+                        projects={projects}
+                        recentProjects={recentProjects}
+                        handleAddToProject={handleAddToProject}
                     />, <div ref={lastTypeElementRef}></div>
                 } else {
                     return <Typeface 
@@ -59,6 +62,9 @@ export default function Typefaces({ inputPangram, thisTypeList, favorites, setFa
                         setFavorites={setFavorites}
                         handleAddToFavorites={handleAddToFavorites}
                         checkFavorites={checkFavorites}
+                        projects={projects}
+                        recentProjects={recentProjects}
+                        handleAddToProject={handleAddToProject}
                     />
                 }
             })}

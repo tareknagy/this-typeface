@@ -52,13 +52,16 @@ export default function App() {
     const projects = await userAPI.createProject(name);
     setProjects(projects);
   }
+
+  async function handleAddToProject(id) {
+    console.log('WHOA IT WORKS!')
+  }
   
   useEffect(function() {
     async function fetchProjects() {
       const projects = await userAPI.getProjects();
       // sort by name
       const projectsByName = projects.slice().sort((a, b) => (a.name < b.name ? -1 : 1))
-
       setProjects(projectsByName);
       // set 3 most recent
       const projectsByDate = projects.slice().sort((a, b) => (a.updatedAt > b.updatedAt ? -1 : 1)).slice(0, 3)
@@ -69,7 +72,6 @@ export default function App() {
 
   // toggle header on scroll
   const headerRef = useRef(null);
-  
   const [y, setY] = useState(window.scrollY);
   
   const handleHeader = useCallback(e => {
@@ -127,6 +129,9 @@ export default function App() {
                     setFavorites={setFavorites}
                     handleAddToFavorites={handleAddToFavorites}
                     checkFavorites={checkFavorites}
+                    projects={projects}
+                    recentProjects={recentProjects}
+                    handleAddToProject={handleAddToProject}
                   />
                 </Route>
                 <Route path="/typefaces/projects/:id">
@@ -137,6 +142,9 @@ export default function App() {
                     setFavorites={setFavorites}
                     handleAddToFavorites={handleAddToFavorites}
                     checkFavorites={checkFavorites}
+                    projects={projects}
+                    recentProjects={recentProjects}
+                    handleAddToProject={handleAddToProject}
                   />
                 </Route>
                 <Route path="/typefaces">
@@ -147,6 +155,9 @@ export default function App() {
                     setFavorites={setFavorites}
                     handleAddToFavorites={handleAddToFavorites}
                     checkFavorites={checkFavorites}
+                    projects={projects}
+                    recentProjects={recentProjects}
+                    handleAddToProject={handleAddToProject}
                   />
                 </Route>
                 <Redirect to="/typefaces" />

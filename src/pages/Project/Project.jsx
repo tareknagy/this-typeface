@@ -6,7 +6,7 @@ import * as userAPI from '../../utilities/user-api'
 import Typeface from '../../components/Typeface/Typeface';
 import './Project.css'
 
-export default function Project({ match, inputPangram, thisTypeList, favorites, setFavorites, handleAddToFavorites, checkFavorites}){
+export default function Project({ match, inputPangram, thisTypeList, favorites, setFavorites, handleAddToFavorites, checkFavorites, projects, recentProjects, handleAddToProject}){
     // Set Project
     const [project, setProject] = useState([]);
     const { id } = useParams();
@@ -49,6 +49,9 @@ export default function Project({ match, inputPangram, thisTypeList, favorites, 
                             setFavorites={setFavorites}
                             handleAddToFavorites={handleAddToFavorites}
                             checkFavorites={checkFavorites}
+                            projects={projects}
+                            recentProjects={recentProjects}
+                            handleAddToProject={handleAddToProject}
                         />
                     ))}
                 </>

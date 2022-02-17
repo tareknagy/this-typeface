@@ -3,8 +3,9 @@ import * as userService from '../../utilities/user-service';
 import * as userAPI from '../../utilities/user-api'
 import './Typeface.css'
 import { useDetectOutsideClick } from '../../utilities/useDetectOutsideClick'
+import AddToProject from '../AddToProject/AddToProject';
 
-export default function Typeface({ inputPangram, typeName, favorites, setFavorites, handleAddToFavorites, checkFavorites }){
+export default function Typeface({ inputPangram, typeName, favorites, setFavorites, handleAddToFavorites, checkFavorites, projects, recentProjects, handleAddToProject }){
     const showProjectList = useRef(null);
     const [isActive, setIsActive] = useDetectOutsideClick(showProjectList, false);
     const projOnClick = () => setIsActive(!isActive);
@@ -31,7 +32,12 @@ export default function Typeface({ inputPangram, typeName, favorites, setFavorit
             </div>
             <div  className="type-card-drawer">
                 <div ref={showProjectList} className={`type-card-project-list ${isActive ? 'active' : 'inActive'}`}>
-                    COMING SOON
+                    <AddToProject 
+                        typeName={typeName}
+                        projects={projects}
+                        recentProjects={recentProjects}
+                        handleAddToProject={handleAddToProject}
+                    />
                 </div>
             </div>
         </div>
