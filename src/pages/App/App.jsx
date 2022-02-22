@@ -53,8 +53,9 @@ export default function App() {
     setProjects(projects);
   }
 
-  async function handleAddToProject(id) {
-    console.log('WHOA IT WORKS!')
+  async function handleAddToProject(id, typeface) {
+    const projects = await userAPI.updateProject(id, typeface)
+    setProjects(projects);
   }
   
   useEffect(function() {

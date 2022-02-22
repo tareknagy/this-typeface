@@ -2,6 +2,7 @@ const { Redirect } = require("react-router");
 const User = require('../../models/user');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
+const { Mongoose } = require("mongoose");
 
 module.exports = {
     create,
@@ -10,7 +11,8 @@ module.exports = {
     favorites,
     projects,
     createProject,
-    getProject
+    getProject,
+    updateProject
 };
 
 // User
@@ -91,12 +93,26 @@ async function createProject(req, res) {
 }
 // View Single Project
 async function getProject(req, res) {
-  // const user = await User.getUser(req.user._id);
   const project = await User.getProject(req.params.project);
-  // project.projects[7].typefaces.push('"Agrandir Variable"')
-  // project.save();
-  console.log('yeaaaa', project)
   res.json(project);
+}
+
+async function updateProject(req, res) {
+  const user = await User.getUser(req.user._id);
+  const projectIndex = user.projects.findIndex(p => p._id.toString() === req.params.project)
+  // check if typeface already exists in project
+  if (user.projects[projectIndex].typefaces.indexOf(`"${req.body.typename}"`) > -1) {
+    // if yes, remove it
+    const typefaceIndex = user.projects[projectIndex].typefaces.indexOf(`"${req.body.typename}"`)
+    const removedTypeface = user.projects[projectIndex].typefaces.splice(typefaceIndex, 1);
+  } else {
+    // if no, add it
+    user.projects[projectIndex].typefaces.push(`"${req.body.typename}"`);
+    console.log('no :(')
+  }
+
+  user.save();
+  res.json(user.projects);
 }
 
 // Helper functions

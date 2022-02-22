@@ -79,3 +79,15 @@ export function getProject(id) {
   }
   return fetch(`${BASE_URL}/projects/${id}`, options).then(res => res.json());
 }
+
+export function updateProject(id, typeface) {
+  const options = {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${getToken()}`
+    },
+    body: JSON.stringify({'typename': typeface})
+  }
+  return fetch(`${BASE_URL}/projects/${id}`, options).then(res => res.json());
+}

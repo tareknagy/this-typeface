@@ -20,5 +20,7 @@ router.get('/projects', usersCtrl.projects)
 router.post('/projects/:project', usersCtrl.createProject)
 // GET /api/users -- Single Project
 router.get('/projects/:project', usersCtrl.getProject)
+// PUT /api/users -- Single Project
+router.put('/projects/:project', usersCtrl.updateProject)
 
 module.exports = router;

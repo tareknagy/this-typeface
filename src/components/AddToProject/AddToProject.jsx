@@ -55,12 +55,12 @@ export default function AddToProject({ typeName, projects, handleCreateProject, 
       </div> */}
       <ul>
         {recentProjects && recentProjects.map((project, index) => (
-          <li><Link onClick={() => handleAddToProject(typeName)}>{project.name}{isInProject(project) ? ' ***' : ''}</Link></li>
+          <li><Link onClick={() => handleAddToProject(project._id, typeName)}>{project.name}{isInProject(project) ? ' ***' : ''}</Link></li>
         ))}
       </ul>
       <ul>
         {projects && projects.map((project, index) => (
-          <li><Link onClick={() => handleAddToProject(typeName)}>{project.name}{isInProject(project) ? ' ***' : ''}</Link></li>
+          <li><Link onClick={() => handleAddToProject(project._id, typeName)}>{project.name}{isInProject(project) ? ' ***' : ''}</Link></li>
         ))}
       </ul>
     </>
