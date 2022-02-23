@@ -83,7 +83,6 @@
 
 .type-card-project-list {
     position: absolute;
-    padding: 10px;
     font-size: 14pt;
     text-transform: uppercase;
     color: white;
@@ -96,7 +95,6 @@
     visibility: hidden;
     transform: translateY(-20px);
     transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
-    max-height: 300px;
     overflow-y: scroll;
 }
 
