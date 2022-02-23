@@ -1,62 +1,23 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
-import * as userService from '../../utilities/user-service';
+import { getUser } from '../../utilities/user-service';
 import * as userAPI from '../../utilities/user-api'
 import Typeface from '../../components/Typeface/Typeface';
 import './Project.css'
 
-export default function Project({ match, inputPangram, thisTypeList, favorites, setFavorites, handleAddToFavorites, checkFavorites, projects, recentProjects, handleAddToProject}){
-    // Set Project
-    // const [project, setProject] = useState([]);
+export default function Project({ inputPangram, thisTypeList, favorites, setFavorites, handleAddToFavorites, checkFavorites, projects, recentProjects, handleAddToProject}){
     const [projectIndex, setProjectIndex] = useState('');
     const { id } = useParams();
     
-    // useEffect(function() {
-    //     // search project, return list of types in array, setProject.
-    //     async function fetchProject() {
-    //         // returns list of all projects for this user
-    //         const projects = await userAPI.getProject(id);
-    //         // select single project
-    //         projects.projects.forEach((p) => {
-    //             if (p._id === id) {
-    //                 setProject(p)
-    //             }
-    //         })
-    //     }
-    //     fetchProject();
-    // }, [id]);
-
-
-
-    // Consider going back to fetching the project list from the APIs here.
-    // Create a State of Projects here as well. ??
-
-
-
-
-
-
-
-
-
-
-    // on id change
+    // determine project index
     useEffect(function() {
-        // get index of project
-        async function fetchProject() {
-            const indexP = projects.findIndex(p => p._id === id);
-            setProjectIndex(indexP);
-            console.log('first try', id, projectIndex, projects, projects[projectIndex])
-        }
-        fetchProject();
-    }, [id]);
-    console.log('second try', id, projectIndex, projects, projects[projectIndex])
-
+        setProjectIndex(projects.findIndex(p => p._id === id));
+    }, [id, projects]);
 
     return (
         <div className="typefaces-container">
-            { projects && projectIndex ? 
+            { projects[projectIndex] && projectIndex ? 
                 <>
                     <Helmet>
                         <title>{projects[projectIndex].name} - This Typeface</title>

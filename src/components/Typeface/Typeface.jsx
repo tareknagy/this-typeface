@@ -6,10 +6,17 @@ import { useDetectOutsideClick } from '../../utilities/useDetectOutsideClick'
 import AddToProject from '../AddToProject/AddToProject';
 
 export default function Typeface({ inputPangram, typeName, favorites, setFavorites, handleAddToFavorites, checkFavorites, projects, recentProjects, handleAddToProject }){
+    // Show & Hide Project List
     const showProjectList = useRef(null);
-    const [isActive, setIsActive] = useDetectOutsideClick(showProjectList, false);
-    const projOnClick = () => setIsActive(!isActive);
+    const [isProjectActive, setIsProjectActive] = useDetectOutsideClick(showProjectList, false);
+    const projOnClick = () => setIsProjectActive(!isProjectActive);
+    // Show & Hide Description
+    const showDescription = useRef(null);
+    const [isDescriptionActive, setIsDescriptionActive] = useDetectOutsideClick(showDescription, false);
+    const descOnClick = () => setIsDescriptionActive(!isDescriptionActive);
+    // Test to see if type can be displayed on this machine
     const typeAvailable = JSON.parse(localStorage.getItem('thisTypeList')).indexOf(typeName) > -1;
+    // Set the pangram
     const pangramDisplay = inputPangram ? inputPangram : typeName;
 
     return (
@@ -28,16 +35,19 @@ export default function Typeface({ inputPangram, typeName, favorites, setFavorit
                         { checkFavorites(typeName) ?  'REMOVE FROM FAVORITES' : 'ADD TO FAVORITES'}
                     </div>
                 </div>
-                <div onClick={projOnClick} className="type-card-describe">DESCRIBE</div>
+                <div onClick={descOnClick} className="type-card-describe">DESCRIBE</div>
             </div>
             <div  className="type-card-drawer">
-                <div ref={showProjectList} className={`type-card-project-list ${isActive ? 'active' : 'inActive'}`}>
+                <div ref={showProjectList} className={`type-card-project-list ${isProjectActive ? 'active' : 'inActive'}`}>
                     <AddToProject 
                         typeName={typeName}
                         projects={projects}
                         recentProjects={recentProjects}
                         handleAddToProject={handleAddToProject}
                     />
+                </div>
+                <div ref={showDescription} className={`type-card-project-list ${isDescriptionActive ? 'active' : 'inActive'}`}>
+                    COMING SOON ...
                 </div>
             </div>
         </div>

@@ -105,10 +105,11 @@ async function updateProject(req, res) {
     // if yes, remove it
     const typefaceIndex = user.projects[projectIndex].typefaces.indexOf(`"${req.body.typename}"`)
     const removedTypeface = user.projects[projectIndex].typefaces.splice(typefaceIndex, 1);
+    console.log('yeaaa', user.projects)
   } else {
     // if no, add it
     user.projects[projectIndex].typefaces.push(`"${req.body.typename}"`);
-    console.log('no :(')
+    console.log('no :(', user.projects)
   }
 
   user.save();

@@ -57,6 +57,7 @@ userSchema.statics.getUser = async function(userId) {
     return this.findOne({_id: userId})
 }
 
+// might not need this anymore
 userSchema.statics.getProject = async function(projectID) {
     return this.findOne({"projects._id": projectID}, "projects._id projects.typefaces projects.name")
 }
