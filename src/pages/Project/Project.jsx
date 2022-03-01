@@ -7,7 +7,7 @@ import Typeface from '../../components/Typeface/Typeface';
 import './Project.css'
 
 export default function Project({ inputPangram, thisTypeList, favorites, setFavorites, handleAddToFavorites, checkFavorites, projects, recentProjects, handleAddToProject}){
-    const [projectIndex, setProjectIndex] = useState(0);
+    const [projectIndex, setProjectIndex] = useState('');
     const { id } = useParams();
     
     // determine project index
@@ -15,9 +15,10 @@ export default function Project({ inputPangram, thisTypeList, favorites, setFavo
         setProjectIndex(projects.findIndex(p => p._id === id));
     }, [id, projects]);
 
+
     return (
         <div className="typefaces-container">
-            { projects[projectIndex] && projectIndex ? 
+            { projects[projectIndex] ? 
                 <>
                     <Helmet>
                         <title>{projects[projectIndex].name} - This Typeface</title>
@@ -32,7 +33,7 @@ export default function Project({ inputPangram, thisTypeList, favorites, setFavo
                     </div>
                     {projects[projectIndex].typefaces && projects[projectIndex].typefaces.map((typeName, index) => (
                         <Typeface 
-                            key={index}
+                            key={typeName}
                             inputPangram={inputPangram} 
                             typeName={typeName.replace(/['"]+/g, '')}
                             favorites={favorites}
@@ -46,8 +47,8 @@ export default function Project({ inputPangram, thisTypeList, favorites, setFavo
                     ))}
                 </>
             :
-                <div>
-                    <h2>Loading....</h2>
+                <div className="project-details">
+                    <div className="project-label">LOADING ....</div>
                 </div>
             }
         </div>
