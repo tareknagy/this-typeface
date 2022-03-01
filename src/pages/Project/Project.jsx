@@ -47,7 +47,7 @@ export default function Project({ inputPangram, thisTypeList, favorites, setFavo
                 </>
             :
                 <div>
-                    <h2>Loading....</h2>
+                    <h2>Loading....{projectIndex}, {projects}</h2>
                 </div>
             }
         </div>
