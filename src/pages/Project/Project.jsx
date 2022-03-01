@@ -7,7 +7,7 @@ import Typeface from '../../components/Typeface/Typeface';
 import './Project.css'
 
 export default function Project({ inputPangram, thisTypeList, favorites, setFavorites, handleAddToFavorites, checkFavorites, projects, recentProjects, handleAddToProject}){
-    const [projectIndex, setProjectIndex] = useState('');
+    const [projectIndex, setProjectIndex] = useState(0);
     const { id } = useParams();
     
     // determine project index
